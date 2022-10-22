@@ -1,4 +1,62 @@
 Saheel Ahmed
 <script>
   console.log('here...');
+  
+  var myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
+
+  var graphql = JSON.stringify({
+    query: `
+      query {
+        resume(where: {id: "cl9iwlqlq6hir0ajuifya1db9"}) {
+          id
+          updatedAt
+          heading
+          contact {
+            html
+          }
+          about {
+            html
+          }
+          educations {
+            year
+            company
+            department
+            description
+            discipline
+          }
+          skills {
+            heading
+            skillName
+          }
+          projects {
+            title
+            source
+            description {
+              html
+            }
+            banner {
+              url
+            }
+            role
+            tools
+            teamSize
+          }
+        }
+      }
+    `,
+    variables: {}
+  })
+  var requestOptions = {
+    method: 'POST',
+    headers: myHeaders,
+    body: graphql,
+    redirect: 'follow'
+  };
+
+  fetch("https://api-eu-west-2.hygraph.com/v2/cl9iv1nmx236a01ujcyin9sht/master", requestOptions)
+  .then(response => response.text())
+  .then(result => console.log('result', result))
+  .catch(error => console.log('error', error));
+  
 </script>
