@@ -62,7 +62,7 @@
     <!-- Education -->
    <div class="ds-experience-section">
     <div class="container">
-       <h2 class="ds-heading">Work Experience</h2>
+       <h2 class="ds-heading">Educations</h2>
        <div class="row ds-experience-list">
            <div v-for="education in profile.educations" class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 mb-4">
              <section>
@@ -130,21 +130,20 @@
                           <div v-html="project.description.html"></div>
                           
                           <ul class="ds-social mt-4">
-                            <li>Role: </li>
                             <li>
+                              <span class="badge bg-primary rounded-pill mx-1">Role:</span>
                               <span v-for="role in project.role" class="badge bg-secondary rounded-pill mx-1">{{role}}</span>
                             </li>
                           </ul>
                           <ul class="ds-social mt-4">
-                            <li>Satck: </li>
                             <li>
+                              <span class="badge bg-danger rounded-pill mx-1">Satck:</span>
                               <span v-for="tool in project.tools" class="badge bg-secondary rounded-pill mx-1">{{tool}}</span>
                             </li>
                           </ul>
                           <ul class="ds-social mt-4">
-                            <li>Team Size:</li>
                             <li>
-                              <strong>{{project.teamSize}}</strong> 
+                              <span class="badge bg-success rounded-pill mx-1">Team Size: <strong>{{project.teamSize}}</strong></span> 
                             </li>
                           </ul>
                       </section>
@@ -166,7 +165,7 @@
           <span>Get in touch</span>
           <h4>Ready to talk?</h4>
           <p>Feel free to contact</p>
-          <a href="mailto:saheelahmed7@gmail.com" class="ds-button">Email</a>
+          <a href="mailto:saheelahmed7@gmail.com" class="ds-button">Send Email</a>
           <a href="tel:+971565952324" class="ds-button">Let's Talk</a>
         </section>
         <span class="ds-copyright">Saheel's Profile</span>
