@@ -18,7 +18,14 @@
       <link href="assets/css/main.css" rel="stylesheet">
 
 
-    <title>Saheel Ahmed - Profile</title>
+      <title>Saheel Ahmed - Profile</title>
+      <style>
+        @media print {
+          .project-banner, footer {
+            display: none !important;
+          }
+        }
+      </style>
   </head>
   <body>
     <div id="app">
@@ -149,7 +156,7 @@
                           </ul>
                       </section>
                   </div>
-                  <div class="col-12 col-sm-12 col-md-5 col-lg-5 col-xl-5 col-xxl-5">
+                  <div class="col-12 col-sm-12 col-md-5 col-lg-5 col-xl-5 col-xxl-5 project-banner">
                       <figure><img :src="project.banner.url"></figure>
                   </div>
               </div>
