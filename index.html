@@ -82,9 +82,10 @@
       <div class="container">
         <div class="row">
           
-          <div v-for="skill in profile.skills" class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 mb-4">
-             <h2 class="ds-heading">{{skill.heading}}</h2>
-             <ul class="ds-skills-list">
+          <div class="col-12 mb-4">
+             <h2 class="ds-heading">Skills</h2>
+             <ul class="ds-skills-list" v-for="skill in profile.skills">
+               <li class="badge bg-secondary rounded-pill text-white"><strong>{{skill.heading}} →</strong></li>
                <li v-for="talent in skill.skillName">{{talent}}</li>
              </ul>
           </div>
