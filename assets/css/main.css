@@ -139,7 +139,7 @@ span.ds-department{ color: #373737; font-weight: 500; font-size: 18px; padding-b
 	.ds-banner figure{ padding: 30px 0; }
 	.ds-banner section{ padding-left: 0;padding-right: 0; }
 	.ds-banner section h1 span{ padding-bottom: 0; }
-	.ds-banner section h1,.ds-work-det-title{ font-size: 30px; line-height: 40px; }
+	.ds-banner section h1,.ds-work-det-title{ font-size: 30px; line-height: 1.5; }
 	.ds-numbervalulist{ margin-top: 20px; }
 	.ds-numbervalulist li{ margin-right: 30px; }
 	.ds-numbervalulist strong{ font-size: 30px; }
