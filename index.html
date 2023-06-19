@@ -201,7 +201,7 @@
           // `this` points to the vm instance
           let _self = this;
           var settings = {
-              "url": "https://api-eu-west-2.hygraph.com/v2/cl9iv1nmx236a01ujcyin9sht/master",
+              "url": "https://eu-west-2.cdn.hygraph.com/content/cl9iv1nmx236a01ujcyin9sht/master",
               "method": "POST",
               "timeout": 0,
               "headers": {
@@ -231,7 +231,7 @@
                       description
                       discipline
                     }
-                    skills {
+                    skills(first: 30) {
                       heading
                       skillName
                     }
