@@ -1,272 +1,581 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-      <!-- Google Fots -->
-     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-      <!-- Remixicon Icon -->
-      <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
-      <!-- Remixicon Icon -->
-      <!-- Bootstrap CSS -->
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-      <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-      <!-- Main CSS -->
-      <link href="assets/css/main.css" rel="stylesheet">
-
-
-      <title>Saheel Ahmed - Profile</title>
-
-      <meta name="description" content="looking for a Full Stack Developer to produce scalable software solutions. You’ll be part of a cross-functional team that’s responsible for the full software development life cycle, from conception to deployment." />
-      <style>
-        @media print {
-          .project-banner, footer {
-            display: none !important;
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Saheel Ahmed | Interactive AI Resume & Architecture Portfolio</title>
+  
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+              900: '#0f172a',
+            }
+          },
+          animation: {
+            'pulse-glow': 'pulseGlow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'bounce-subtle': 'bounceSubtle 1.5s infinite',
+          },
+          keyframes: {
+            pulseGlow: {
+              '0%, 100%': { opacity: 1, filter: 'drop-shadow(0 0 12px rgba(99, 102, 241, 0.6))' },
+              '50%': { opacity: 0.7, filter: 'drop-shadow(0 0 4px rgba(99, 102, 241, 0.2))' },
+            },
+            bounceSubtle: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-3px)' }
+            }
           }
         }
-      </style>
-  </head>
-  <body>
-    <div id="app">
-      
-    
-    <!-- banner -->
-    <div class="ds-banner">
-      <section>
-        <div class="container">
-          <div class="row">
-            <div class="col-12">
-              <h1>
-                <span>{{profile.greeting}}</span>
-                <div v-html="profile.heading.html"></div>
-              </h1>
-              <h5 v-html="profile.contact.html">
-              </h5>
-              <ul class="ds-social mt-4">
-                <li><a href="https://github.com/saheel-ahmed" target="_blank"><i class="ri-github-fill"></i></a></li>
-                <li><a href="https://www.linkedin.com/in/saheel-ahmed/" target="_blank"><i class="ri-linkedin-fill"></i></a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-    </section>
-    </div>
-    <!-- banner -->
+      }
+    }
+  </script>
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- about -->
-    <div class="ds-about-section">
-      <div class="container">
-        <section>
-            <h2 class="ds-heading">About Me</h2>
-            <div v-html="profile.about.html">
-            </div>
-        </section>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+    /* Custom Scrollbar for Smooth Mobile Feel */
+    ::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0f172a;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #334155;
+      border-radius: 9999px;
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col selection:bg-indigo-500 selection:text-white">
+
+  <!-- Top Navigation Header -->
+  <header class="sticky top-0 z-40 bg-slate-950/80 backdrop-blur-md border-b border-slate-800/80 px-4 py-3">
+    <div class="max-w-6xl mx-auto flex items-center justify-between">
+      
+      <!-- Profile Info -->
+      <div class="flex items-center space-x-3">
+        <div class="relative">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-cyan-400 flex items-center justify-center font-bold text-white shadow-lg shadow-indigo-500/25 text-sm">
+            SA
+          </div>
+          <span class="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 bg-emerald-500 border-2 border-slate-950 rounded-full"></span>
+        </div>
+        <div>
+          <div class="flex items-center gap-1.5">
+            <h1 class="font-bold text-sm sm:text-base text-white leading-none">Saheel Ahmed</h1>
+            <span class="text-[10px] bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 px-1.5 py-0.5 rounded font-mono">AI Arch</span>
+          </div>
+          <p class="text-[11px] text-slate-400 mt-0.5">Nearly 2 Decades Tech Leadership</p>
+        </div>
+      </div>
+
+      <!-- Quick Action Links -->
+      <div class="flex items-center space-x-2">
+        <a href="https://linkedin.com/in/saheel-ahmed" target="_blank" rel="noopener" class="p-2.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-indigo-500/50 text-slate-300 hover:text-white transition-all text-xs flex items-center gap-1.5 active:scale-95">
+          <i class="fab fa-linkedin text-indigo-400 text-sm"></i>
+          <span class="hidden sm:inline font-medium">LinkedIn</span>
+        </a>
+        <a href="mailto:saheelahmed7@gmail.com" class="p-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-medium transition-all text-xs flex items-center gap-1.5 shadow-md shadow-indigo-600/30 active:scale-95">
+          <i class="fas fa-envelope text-xs"></i>
+          <span class="hidden sm:inline">Contact</span>
+        </a>
       </div>
     </div>
-    <!-- about -->
+  </header>
 
-    <!-- Education -->
-   <div class="ds-experience-section">
-    <div class="container">
-       <h2 class="ds-heading">Educations</h2>
-       <div class="row g-2 ds-experience-list">
-           <div v-for="education in profile.educations" class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 mb-4">
-             <section>
-               <span class="ds-year" v-html="education.year"></span>
-               <h3 class="ds-officename" v-html="education.company"></h3>
-               <span class="ds-department" v-html="education.department"></span>
-             </section>
-           </div>
-       </div>
+  <!-- Mobile Segment Control / Tab Switcher (Visible only on mobile/tablet screens) -->
+  <div class="lg:hidden bg-slate-900/90 border-b border-slate-800 sticky top-[61px] z-30 px-4 py-2">
+    <div class="grid grid-cols-2 gap-2 bg-slate-950 p-1 rounded-xl border border-slate-800/80">
+      <button id="tab-btn-overview" onclick="switchMobileTab('overview')" class="py-2 text-xs font-semibold rounded-lg transition-all flex items-center justify-center gap-2 bg-indigo-600 text-white shadow-md shadow-indigo-600/30">
+        <i class="fas fa-user-gear"></i> Overview & Prompts
+      </button>
+      <button id="tab-btn-chat" onclick="switchMobileTab('chat')" class="py-2 text-xs font-semibold rounded-lg transition-all flex items-center justify-center gap-2 text-slate-400 hover:text-slate-200">
+        <i class="fas fa-robot text-indigo-400"></i> AI Assistant
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+      </button>
     </div>
   </div>
-   <!-- Education -->
 
+  <!-- Main Container -->
+  <main class="flex-1 max-w-6xl w-full mx-auto px-4 py-4 sm:py-6 grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+    
+    <!-- Left Column: Overview, Experience & Interactive Prompts -->
+    <section id="section-overview" class="lg:col-span-5 space-y-5 block">
+      
+      <!-- Welcome Hero Box -->
+      <div class="bg-gradient-to-b from-slate-900 to-slate-900/80 border border-slate-800/80 rounded-2xl p-4 sm:p-5 relative overflow-hidden shadow-xl">
+        <div class="absolute -top-12 -right-12 w-32 h-32 bg-indigo-600/10 rounded-full blur-2xl"></div>
+        
+        <div class="flex items-center justify-between mb-3">
+          <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[11px] font-semibold tracking-wide">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Vector RAG Active
+          </span>
+          <span class="text-xs text-slate-500 font-mono">Gemini 1.7 Flash</span>
+        </div>
 
-    <!--  Skills -->
-    <div class="ds-skills-section">
-      <div class="container">
-        <div class="row">
-          
-          <div class="col-12 mb-4">
-             <h2 class="ds-heading">Skills</h2>
-             <ul class="ds-skills-list" v-for="skill in profile.skills">
-               <li class="badge bg-secondary rounded-pill text-white"><strong>{{skill.heading}} →</strong></li>
-               <li v-for="talent in skill.skillName">{{talent}}</li>
-             </ul>
+        <h2 class="text-xl sm:text-2xl font-bold text-white tracking-tight leading-snug">
+          Ask my AI Assistant anything about my experience.
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-400 mt-2 leading-relaxed">
+          Trained on my complete background in <strong class="text-slate-200">AI Architecture</strong>, <strong class="text-slate-200">Enterprise Solutions</strong>, and <strong class="text-slate-200">nearly 2 decades</strong> of tech engineering.
+        </p>
+
+        <!-- Dynamic Tech Chips -->
+        <div class="mt-4 pt-3 border-t border-slate-800/60">
+          <p class="text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-2">Tap Topic to Ask Bot</p>
+          <div class="flex flex-wrap gap-1.5">
+            <button onclick="handlePromptClick('Tell me about Saheel\'s expertise in AI & LLMs')" class="text-xs px-2.5 py-1 rounded-lg bg-slate-800/80 hover:bg-indigo-600/30 border border-slate-700/60 hover:border-indigo-500 text-indigo-300 transition-all active:scale-95 flex items-center gap-1">
+              🤖 Enterprise AI
+            </button>
+            <button onclick="handlePromptClick('What solutions architecture projects has Saheel led?')" class="text-xs px-2.5 py-1 rounded-lg bg-slate-800/80 hover:bg-indigo-600/30 border border-slate-700/60 hover:border-indigo-500 text-indigo-300 transition-all active:scale-95 flex items-center gap-1">
+              🏛️ Solutions Arch
+            </button>
+            <button onclick="handlePromptClick('What is Saheel\'s leadership style and team size managed?')" class="text-xs px-2.5 py-1 rounded-lg bg-slate-800/80 hover:bg-indigo-600/30 border border-slate-700/60 hover:border-indigo-500 text-indigo-300 transition-all active:scale-95 flex items-center gap-1">
+              👥 Leadership
+            </button>
+            <button onclick="handlePromptClick('What is Saheel\'s educational background and certifications?')" class="text-xs px-2.5 py-1 rounded-lg bg-slate-800/80 hover:bg-indigo-600/30 border border-slate-700/60 hover:border-indigo-500 text-indigo-300 transition-all active:scale-95 flex items-center gap-1">
+              🎓 Credentials
+            </button>
           </div>
-
         </div>
       </div>
-    </div>
-    <!--  Skills -->
 
-   <!-- Experience -->
-   <div class="ds-experience-section">
-     <div class="container">
-        <h2 class="ds-heading">Work Experience</h2>
-        <div class="row ds-experience-list g-2">
-            <div v-for="experience in profile.experiences" class="col-12 col-sm-12  mb-4" v-bind:class="{ 'col-md-6 col-lg-6 col-xl-6 col-xxl-6': ($index > 0)  }" >
-              <section>
-                <span class="ds-year" v-html="experience.year"></span>
-                <h3 class="ds-officename" v-html="experience.company"></h3>
-                <span class="ds-department" v-html="experience.department">Full Stack developer</span>
-                <p>{{experience.description}}</p>
-                <ul>
-                  <li v-for="disc in experience.discipline"><strong>»</strong> {{disc}}</li>
-                </ul>
-              </section>
-            </div>
+      <!-- Suggested Prompts Card Stack -->
+      <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 sm:p-5 space-y-3">
+        <div class="flex items-center justify-between">
+          <h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
+            <i class="fas fa-lightbulb text-amber-400"></i> Recommended Questions
+          </h3>
+          <span class="text-[10px] text-emerald-400 font-mono flex items-center gap-1">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> Tap to Ask Directly
+          </span>
         </div>
-     </div>
-   </div>
-    <!-- Experience -->
 
-   <!--  Work -->
-   <div class="ds-work-section">
-     <div class="container">
-          <h2 class="ds-heading">Latest works</h2>
-          <div class="ds-work-list-section">
-            <div class="ds-work-list">
-              <div v-for="project in profile.projects" class="row">
-                  <div class="col-12 col-sm-12">
-                      <section class="pb-4">
-                          <h3 class="ds-work-tilte" v-html="project.title"></h3>
-                          <h5 class="mb-4">Company/Client: {{project.source}}</h5>
-                          <div v-html="project.description.html"></div>
-                          
-                          <ul class="ds-social mt-4">
-                            <li>
-                              <span class="badge bg-primary rounded-pill mx-1">Role:</span>
-                              <span v-for="role in project.role" class="badge bg-secondary rounded-pill mx-1">{{role}}</span>
-                            </li>
-                          </ul>
-                          <ul class="ds-social mt-4">
-                            <li>
-                              <span class="badge bg-danger rounded-pill mx-1">Satck:</span>
-                              <span v-for="tool in project.tools" class="badge bg-secondary rounded-pill mx-1">{{tool}}</span>
-                            </li>
-                          </ul>
-                          <ul class="ds-social mt-4">
-                            <li>
-                              <span class="badge bg-success rounded-pill mx-1">Team Size: <strong>{{project.teamSize}}</strong></span> 
-                            </li>
-                          </ul>
-                      </section>
-                  </div>
+        <!-- Prompt 1 -->
+        <div class="group relative rounded-xl bg-slate-950/80 border border-slate-800 hover:border-indigo-500/50 p-3 transition-all">
+          <div class="flex items-start justify-between gap-2">
+            <p class="text-xs sm:text-sm text-slate-200 font-medium leading-snug">
+              "What is Saheel's core architectural background?"
+            </p>
+          </div>
+          <div class="mt-2.5 flex items-center justify-between pt-2 border-t border-slate-900">
+            <span class="text-[10px] text-slate-500">Core Expertise</span>
+            <button onclick="handlePromptClick('What is Saheel\'s core architectural background?', this)" class="px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-medium transition-all flex items-center gap-1.5 shadow-md active:scale-95">
+              <i class="fas fa-paper-plane text-[10px]"></i> <span>Ask AI Now</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Prompt 2 -->
+        <div class="group relative rounded-xl bg-slate-950/80 border border-slate-800 hover:border-indigo-500/50 p-3 transition-all">
+          <div class="flex items-start justify-between gap-2">
+            <p class="text-xs sm:text-sm text-slate-200 font-medium leading-snug">
+              "Can you summarize his 18+ years of experience?"
+            </p>
+          </div>
+          <div class="mt-2.5 flex items-center justify-between pt-2 border-t border-slate-900">
+            <span class="text-[10px] text-slate-500">Career Summary</span>
+            <button onclick="handlePromptClick('Can you summarize his 18+ years of experience?', this)" class="px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-medium transition-all flex items-center gap-1.5 shadow-md active:scale-95">
+              <i class="fas fa-paper-plane text-[10px]"></i> <span>Ask AI Now</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Prompt 3 -->
+        <div class="group relative rounded-xl bg-slate-950/80 border border-slate-800 hover:border-indigo-500/50 p-3 transition-all">
+          <div class="flex items-start justify-between gap-2">
+            <p class="text-xs sm:text-sm text-slate-200 font-medium leading-snug">
+              "What key technologies and frameworks does he use?"
+            </p>
+          </div>
+          <div class="mt-2.5 flex items-center justify-between pt-2 border-t border-slate-900">
+            <span class="text-[10px] text-slate-500">Tech Stack</span>
+            <button onclick="handlePromptClick('What key technologies and frameworks does he use?', this)" class="px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-medium transition-all flex items-center gap-1.5 shadow-md active:scale-95">
+              <i class="fas fa-paper-plane text-[10px]"></i> <span>Ask AI Now</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Highlights Grid -->
+      <div class="grid grid-cols-2 gap-2.5 text-xs">
+        <div class="p-3 rounded-xl bg-slate-900/50 border border-slate-800 flex items-center gap-3">
+          <div class="w-8 h-8 rounded-lg bg-indigo-500/10 text-indigo-400 flex items-center justify-center shrink-0">
+            <i class="fas fa-briefcase"></i>
+          </div>
+          <div>
+            <div class="font-bold text-slate-200">~2 Decades</div>
+            <div class="text-[10px] text-slate-400">Enterprise Experience</div>
+          </div>
+        </div>
+
+        <div class="p-3 rounded-xl bg-slate-900/50 border border-slate-800 flex items-center gap-3">
+          <div class="w-8 h-8 rounded-lg bg-indigo-500/10 text-indigo-400 flex items-center justify-center shrink-0">
+            <i class="fas fa-location-dot"></i>
+          </div>
+          <div>
+            <div class="font-bold text-slate-200">Global</div>
+            <div class="text-[10px] text-slate-400">Dubai & India</div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Right Column: Interactive Chatbot Frame -->
+    <section id="section-chat" class="lg:col-span-7 w-full hidden lg:block">
+      
+      <div id="chat-card-container" class="bg-slate-950 border border-slate-800 rounded-2xl shadow-2xl overflow-hidden flex flex-col h-[calc(100vh-140px)] min-h-[520px] max-h-[750px] relative transition-all duration-300">
+        
+        <div class="bg-slate-900 border-b border-slate-800 px-4 py-3 flex justify-between items-center shrink-0">
+          <div class="flex items-center space-x-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-red-500 inline-block"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-yellow-500 inline-block"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-green-500 inline-block"></span>
+            <span class="text-xs font-mono text-slate-300 ml-2 font-medium">Saheel's AI Assistant</span>
+          </div>
+
+          <div class="flex items-center space-x-2">
+            <button onclick="toggleFullscreenChat()" class="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors text-xs" title="Expand View">
+              <i id="fullscreen-icon" class="fas fa-expand"></i>
+            </button>
+
+            <button onclick="resetChatSession()" class="px-2.5 py-1 rounded-lg text-xs bg-slate-800 hover:bg-slate-700 text-slate-300 transition-colors flex items-center gap-1.5">
+              <i class="fas fa-rotate-right text-[10px]"></i> <span>Clear Chat</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Chat Sub-bar Instructions -->
+        <div class="bg-indigo-950/40 border-b border-indigo-900/30 px-4 py-1.5 flex items-center justify-between text-[11px] text-indigo-300">
+          <span class="flex items-center gap-1.5">
+            <i class="fas fa-bolt text-amber-400"></i> Tap any prompt on the left to ask instantly!
+          </span>
+          <span class="hidden sm:inline font-mono text-[10px] text-indigo-400">Direct n8n API Connected</span>
+        </div>
+
+        <div class="flex-1 w-full h-full flex flex-col justify-between overflow-hidden bg-slate-950">
+          
+          <!-- Chat Feed Scroll Area -->
+          <div id="chat-messages-container" class="flex-1 p-4 overflow-y-auto space-y-4 text-xs sm:text-sm">
+            
+            <!-- Default Welcome Bot Bubble -->
+            <div class="flex items-start space-x-3">
+              <div class="w-8 h-8 rounded-xl bg-indigo-600 flex items-center justify-center font-bold text-white text-xs shrink-0 shadow-md">
+                AI
+              </div>
+              <div class="bg-slate-900 border border-slate-800 text-slate-200 p-3.5 rounded-2xl rounded-tl-none max-w-[85%] leading-relaxed space-y-2">
+                <p>Hello! I am Saheel's AI Assistant. 👋</p>
+                <p>Ask me anything about his nearly two decades of experience as an AI & Enterprise Solutions Architect, or select a question on the left to get started!</p>
               </div>
             </div>
+
           </div>
-     </div>
-   </div>
-   <!--  Work -->
 
-   <!--  footer -->
-   <footer class="ds-footer text-center">
-     <div class="container">
-        <section>
-          <span>Get in touch</span>
-          <h4>Ready to talk?</h4>
-          <p>Feel free to contact</p>
-          <a href="mailto:saheelahmed7@gmail.com" class="ds-button">Send Email</a>
-          <a href="tel:+971565952324" class="ds-button">Let's Talk</a>
-        </section>
-        <span class="ds-copyright">Saheel's Profile</span>
-     </div>
-   </footer>
+          <!-- Typing Indicator -->
+          <div id="typing-indicator" class="hidden px-4 py-2 flex items-center space-x-2 text-xs text-indigo-400 font-mono">
+            <div class="w-2 h-2 rounded-full bg-indigo-400 animate-ping"></div>
+            <span>Saheel's AI is analyzing...</span>
+          </div>
 
+          <!-- Direct Message Input Form -->
+          <form id="chat-form" onsubmit="handleChatSubmit(event)" class="p-3 bg-slate-900 border-t border-slate-800 flex items-center gap-2">
+            <input 
+              type="text" 
+              id="chat-user-input" 
+              placeholder="Ask Saheel's AI anything..." 
+              class="flex-1 bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-indigo-500 transition-colors"
+            />
+            <button 
+              type="submit" 
+              id="chat-send-btn"
+              class="px-4 py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-all active:scale-95 shadow-md shadow-indigo-600/30 shrink-0"
+            >
+              <span>Send</span> <i class="fas fa-paper-plane text-[10px]"></i>
+            </button>
+          </form>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Toast Notification Bar (Fixed at bottom) -->
+  <div id="toast-notification" class="fixed bottom-5 left-1/2 -translate-x-1/2 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none w-[90%] max-w-md">
+    <div class="bg-slate-900 border border-emerald-500/50 text-white px-4 py-3 rounded-xl shadow-2xl flex items-center justify-between backdrop-blur-lg">
+      <div class="flex items-center space-x-3">
+        <div class="w-7 h-7 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
+          <i class="fas fa-check text-xs"></i>
+        </div>
+        <div>
+          <p class="text-xs font-semibold text-emerald-300" id="toast-title">Query Copied!</p>
+          <p class="text-[11px] text-slate-300" id="toast-message">Paste it in the chat box to ask the AI.</p>
+        </div>
+      </div>
+      <span class="text-[10px] font-mono bg-emerald-500/10 text-emerald-400 px-2 py-0.5 rounded border border-emerald-500/20">Ready to paste</span>
+    </div>
   </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <!-- Interactive Client-side Script -->
+  <script>
+    // State management
+    let activeMobileTab = 'overview';
+    let isFullscreen = false;
+    const N8N_WEBHOOK_URL = 'https://n8n.propmatch.ae/webhook/8c345697-f57f-4a79-af44-3ab814fdb816/chat';
+    
+    // Persistent Session ID for Chat Memory
+    let sessionId = localStorage.getItem('saheel_chat_session_id');
+    if (!sessionId) {
+      sessionId = 'session_' + Math.random().toString(36).substring(2, 11) + '_' + Date.now();
+      localStorage.setItem('saheel_chat_session_id', sessionId);
+    }
 
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-    -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.28/vue.min.js"></script>
-    <script src="assets/js/main.js"></script>
-    <script>
-      new Vue({
-        el: '#app',
-        data: {
-          profile: null
-        },
-        created: function () {
-          // `this` points to the vm instance
-          let _self = this;
-          var settings = {
-              "url": "https://eu-west-2.cdn.hygraph.com/content/cl9iv1nmx236a01ujcyin9sht/master",
-              "method": "POST",
-              "timeout": 0,
-              "headers": {
-                "Accept": "application/json",
-                "Content-Type": "application/json"
-              },
-              "data": JSON.stringify({
-                query: `
-                query Resumes {
-                  resume(where: {id: "cl9iwlqlq6hir0ajuifya1db9"}) {
-                    id
-                    updatedAt
-                    greeting
-                    heading {
-                      html
-                    }
-                    contact {
-                      html
-                    }
-                    about {
-                      html
-                    }
-                    educations {
-                      year
-                      company
-                      department
-                      description
-                      discipline
-                    }
-                    skills(first: 30) {
-                      heading
-                      skillName
-                    }
-                    experiences {
-                      year
-                      company
-                      department
-                      description
-                      discipline
-                    }
-                    projects {
-                      title
-                      source
-                      description {
-                        html
-                      }
-                      banner {
-                        url
-                      }
-                      role
-                      tools
-                      teamSize
-                    }
-                  }
-                }
-                `,
-                variables: {}
-              })
-            };
+    // Mobile View Tab Switcher
+    function switchMobileTab(tab) {
+      activeMobileTab = tab;
+      const overviewSec = document.getElementById('section-overview');
+      const chatSec = document.getElementById('section-chat');
+      const btnOverview = document.getElementById('tab-btn-overview');
+      const btnChat = document.getElementById('tab-btn-chat');
 
-            $.ajax(settings).done(function (response) {
-              _self.profile = response.data.resume;
-            });
+      if (tab === 'overview') {
+        overviewSec.classList.remove('hidden');
+        chatSec.classList.add('hidden');
+        
+        btnOverview.className = 'py-2 text-xs font-semibold rounded-lg transition-all flex items-center justify-center gap-2 bg-indigo-600 text-white shadow-md shadow-indigo-600/30';
+        btnChat.className = 'py-2 text-xs font-semibold rounded-lg transition-all flex items-center justify-center gap-2 text-slate-400 hover:text-slate-200';
+      } else {
+        overviewSec.classList.add('hidden');
+        chatSec.classList.remove('hidden');
+        chatSec.classList.add('block');
+
+        btnChat.className = 'py-2 text-xs font-semibold rounded-lg transition-all flex items-center justify-center gap-2 bg-indigo-600 text-white shadow-md shadow-indigo-600/30';
+        btnOverview.className = 'py-2 text-xs font-semibold rounded-lg transition-all flex items-center justify-center gap-2 text-slate-400 hover:text-slate-200';
+        
+        window.scrollTo({ top: 60, behavior: 'smooth' });
+      }
+    }
+
+    async function sendDirectToChat(messageText) {
+      if (!messageText || !messageText.trim()) return;
+
+      // Switch to Chat tab on Mobile immediately
+      if (window.innerWidth < 1024) {
+        switchMobileTab('chat');
+      } else {
+        document.getElementById('section-chat').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+
+      // 1. Render User Message
+      appendUserMessage(messageText);
+
+      // 2. Show Typing Indicator
+      showTyping(true);
+
+      try {
+        const response = await fetch(N8N_WEBHOOK_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            action: 'sendMessage',
+            sessionId: sessionId,
+            chatInput: messageText
+          })
+        });
+
+        const data = await response.json();
+        showTyping(false);
+
+        // 3. Extract Bot Reply Text
+        let replyText = '';
+        if (typeof data === 'string') {
+          replyText = data;
+        } else if (Array.isArray(data) && data[0] && (data[0].output || data[0].text || data[0].message)) {
+          replyText = data[0].output || data[0].text || data[0].message;
+        } else if (data.output) {
+          replyText = data.output;
+        } else if (data.text) {
+          replyText = data.text;
+        } else if (data.message) {
+          replyText = data.message;
+        } else {
+          replyText = "Thank you for asking! Saheel's AI has logged your request.";
         }
-      })
-    </script>
-  </body>
+
+        appendBotMessage(replyText);
+
+      } catch (error) {
+        console.error('Error communicating with n8n chatbot:', error);
+        showTyping(false);
+        appendBotMessage("I encountered a brief connection glitch contacting Saheel's AI agent. Please try asking again in a moment!");
+      }
+    }
+
+    // Handles user clicking a prompt or tech pill
+    function handlePromptClick(text, btnElement = null) {
+      sendDirectToChat(text);
+      if (btnElement) {
+        showToast('Sending Question...', 'AI is processing your query.');
+      }
+    }
+
+    // Handles user typing in input box
+    function handleChatSubmit(event) {
+      event.preventDefault();
+      const input = document.getElementById('chat-user-input');
+      const text = input.value;
+      if (text.trim()) {
+        input.value = '';
+        sendDirectToChat(text);
+      }
+    }
+
+    // UI Helper: Append User Message Bubble
+    function appendUserMessage(text) {
+      const container = document.getElementById('chat-messages-container');
+      const userDiv = document.createElement('div');
+      userDiv.className = 'flex items-start justify-end space-x-3';
+      userDiv.innerHTML = `
+        <div class="bg-indigo-600 text-white p-3.5 rounded-2xl rounded-tr-none max-w-[85%] leading-relaxed shadow-md font-medium">
+          ${escapeHtml(text)}
+        </div>
+        <div class="w-8 h-8 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center font-bold text-slate-300 text-xs shrink-0">
+          You
+        </div>
+      `;
+      container.appendChild(userDiv);
+      scrollToChatBottom();
+    }
+
+    // UI Helper: Append Bot Message Bubble
+    function appendBotMessage(text) {
+      const container = document.getElementById('chat-messages-container');
+      const botDiv = document.createElement('div');
+      botDiv.className = 'flex items-start space-x-3';
+      
+      // Simple Markdown-style formatting conversion
+      const formattedText = formatBotText(text);
+
+      botDiv.innerHTML = `
+        <div class="w-8 h-8 rounded-xl bg-indigo-600 flex items-center justify-center font-bold text-white text-xs shrink-0 shadow-md">
+          AI
+        </div>
+        <div class="bg-slate-900 border border-slate-800 text-slate-200 p-3.5 rounded-2xl rounded-tl-none max-w-[85%] leading-relaxed space-y-2">
+          ${formattedText}
+        </div>
+      `;
+      container.appendChild(botDiv);
+      scrollToChatBottom();
+    }
+
+    // Simple Text Formatting Utility
+    function formatBotText(str) {
+      if (!str) return '';
+      let clean = escapeHtml(str);
+      // Bold text **text**
+      clean = clean.replace(/\*\*(.*?)\*\*/g, '<strong class="text-white">$1</strong>');
+      // Bullet points
+      clean = clean.replace(/^\n?\* (.*)/gm, '<li class="ml-4 list-disc">$1</li>');
+      // Paragraph breaks
+      clean = clean.replace(/\n\n/g, '</p><p class="mt-2">');
+      return `<p>${clean}</p>`;
+    }
+
+    function escapeHtml(unsafe) {
+      return unsafe
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+    function showTyping(show) {
+      const indicator = document.getElementById('typing-indicator');
+      if (show) {
+        indicator.classList.remove('hidden');
+      } else {
+        indicator.classList.add('hidden');
+      }
+      scrollToChatBottom();
+    }
+
+    function scrollToChatBottom() {
+      const container = document.getElementById('chat-messages-container');
+      container.scrollTop = container.scrollHeight;
+    }
+
+    function resetChatSession() {
+      localStorage.removeItem('saheel_chat_session_id');
+      sessionId = 'session_' + Math.random().toString(36).substring(2, 11) + '_' + Date.now();
+      localStorage.setItem('saheel_chat_session_id', sessionId);
+
+      const container = document.getElementById('chat-messages-container');
+      container.innerHTML = `
+        <div class="flex items-start space-x-3">
+          <div class="w-8 h-8 rounded-xl bg-indigo-600 flex items-center justify-center font-bold text-white text-xs shrink-0 shadow-md">
+            AI
+          </div>
+          <div class="bg-slate-900 border border-slate-800 text-slate-200 p-3.5 rounded-2xl rounded-tl-none max-w-[85%] leading-relaxed space-y-2">
+            <p>Chat session reset! 👋</p>
+            <p>Ask me anything about Saheel's experience or pick a prompt on the left.</p>
+          </div>
+        </div>
+      `;
+      showToast('Chat Reset', 'Started a fresh session with Saheel\'s AI.');
+    }
+
+    // Toast Notification logic
+    function showToast(title, message) {
+      const toast = document.getElementById('toast-notification');
+      document.getElementById('toast-title').innerText = title;
+      document.getElementById('toast-message').innerText = message;
+
+      toast.classList.remove('translate-y-20', 'opacity-0', 'pointer-events-none');
+      toast.classList.add('translate-y-0', 'opacity-100');
+
+      setTimeout(() => {
+        toast.classList.remove('translate-y-0', 'opacity-100');
+        toast.classList.add('translate-y-20', 'opacity-0', 'pointer-events-none');
+      }, 3000);
+    }
+
+    // Toggle Chat Fullscreen View
+    function toggleFullscreenChat() {
+      const container = document.getElementById('chat-card-container');
+      const icon = document.getElementById('fullscreen-icon');
+
+      isFullscreen = !isFullscreen;
+      if (isFullscreen) {
+        container.classList.add('fixed', 'inset-2', 'z-50', 'max-h-none', 'h-auto');
+        icon.className = 'fas fa-compress';
+      } else {
+        container.classList.remove('fixed', 'inset-2', 'z-50', 'max-h-none', 'h-auto');
+        icon.className = 'fas fa-expand';
+      }
+    }
+  </script>
+</body>
 </html>
